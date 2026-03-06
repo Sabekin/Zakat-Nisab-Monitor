@@ -1,0 +1,1 @@
+This project tracks the live silver price and automatically calculates the Zakat Nisab. Nisab is the minimum amount of wealth a Muslim must possess before Zakat becomes obligatory. By using real-time silver prices, the tool helps users easily determine the current Nisab threshold.
