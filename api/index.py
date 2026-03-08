@@ -17,7 +17,7 @@ def get_data():
     try:
         url = "https://bajus.org/gold-price"
         headers = {'User-Agent': 'Mozilla/5.0'}
-        response = requests.get(url, headers=headers, timeout=5) # Increased timeout slightly for serverless
+        response = requests.get(url, headers=headers, timeout=5)
         soup = BeautifulSoup(response.text, 'html.parser')
         rows = soup.find_all('tr')
         for row in rows:
@@ -171,23 +171,23 @@ def index():
 
         <div class="main-container">
             <h1>Zakat Nisab Monitor</h1>
-            <p class="timestamp">{{current_time}}</p>
+            <p class="timestamp">{current_time}</p>
             
             <div class="card local">
                 <p class="label">Bangladesh (BAJUS) - 1g Silver</p>
-                <p class="price-val">{{local_price:,.2f}} BDT</p>
+                <p class="price-val">{local_price:,.2f} BDT</p>
                 <div class="nisab-box">
                     <p class="nisab-title">Nisab Threshold (612.35g):</p>
-                    <div class="nisab-val">{{local_nisab:,.2f} BDT</div>
+                    <div class="nisab-val">{local_nisab:,.2f} BDT</div>
                 </div>
             </div>
 
             <div class="card global">
                 <p class="label">Global (USA) - 1oz Silver</p>
-                <p class="price-val">${{global_price:,.2f}} USD</p>
+                <p class="price-val">${global_price:,.2f} USD</p>
                 <div class="nisab-box">
                     <p class="nisab-title">Nisab Threshold (19.69oz):</p>
-                    <div class="nisab-val">${{global_nisab:,.2f}} USD</div>
+                    <div class="nisab-val">${global_nisab:,.2f} USD</div>
                 </div>
             </div>
 
@@ -233,6 +233,5 @@ def index():
     """
     return render_template_string(html_template)
 
-# Required for Vercel
-# This exposes the Flask app as the entry point
+# For Vercel, the app must be accessible at the top level of the module
 app = app
